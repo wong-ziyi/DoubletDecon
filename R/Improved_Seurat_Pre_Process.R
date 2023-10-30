@@ -21,11 +21,11 @@ Improved_Seurat_Pre_Process <- function(seuratObject, num_genes=50, write_files=
 
   #extract expression file
   if(data_type=="counts"){
-    expression=as.data.frame(seuratObject@assays[["RNA"]]@layers$counts)
+    expression=as.data.frame(GetAssayData(seuratObject, assay = "RNA", layer = "counts"))
   }else if(data_type=="data"){
-    expression=as.data.frame(seuratObject@assays[["RNA"]]@layers$data)
+    expression=as.data.frame(GetAssayData(seuratObject, assay = "RNA", layer = "data"))
   }else if(data_type=="scaled.data"){
-    expression=as.data.frame(seuratObject@assays[["RNA"]]@layers$scale.data)
+    expression=as.data.frame(GetAssayData(seuratObject, assay = "RNA", layer = "scale.data"))
   }
 
   #extract marker genes
